@@ -35,7 +35,10 @@
 	  <activity
 	       android:name=".RecruiterProfile"
 	       android:theme="@style/AppTheme.NoActionBar" />
-	  <activity android:name=".RecruiterEdit"
+	  <activity
+	       android:name=".RecruiterEdit"
+	       android:theme="@style/AppTheme.NoActionBar" />
+	  <activity android:name=".ShowImage"
 	       android:theme="@style/AppTheme.NoActionBar"></activity>
      </application>
 

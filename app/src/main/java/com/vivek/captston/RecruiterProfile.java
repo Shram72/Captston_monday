@@ -3,6 +3,8 @@ package com.vivek.captston;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.v4.app.ActivityOptionsCompat;
+import android.support.v4.view.ViewCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
@@ -23,7 +25,7 @@ import jp.wasabeef.picasso.transformations.CropCircleTransformation;
 public class RecruiterProfile extends AppCompatActivity
 {
      FirebaseAuth mAuth;
-     DatabaseReference mDatabase , msubref;
+     DatabaseReference mDatabase, msubref;
      TextView name, mail, aadhaar, mobile, state, city, address;
      CircleImageView profile;
 
@@ -40,14 +42,25 @@ public class RecruiterProfile extends AppCompatActivity
 	  city = (TextView)findViewById(R.id.recruiter_city);
 	  mobile = (TextView)findViewById(R.id.recruiter_mobile);
 	  state = (TextView)findViewById(R.id.recruiter_state);
-	  profile = (CircleImageView) findViewById(R.id.profile_image);
+	  profile = (CircleImageView)findViewById(R.id.profile_image);
 
 	  mDatabase = FirebaseDatabase.getInstance().getReference();
 	  mAuth = FirebaseAuth.getInstance();
 
 	  Toast.makeText(this , "Test In Profile" , Toast.LENGTH_SHORT).show();
 	  retrieve();
+
+	  profile.setOnClickListener(new View.OnClickListener()
+	  {
+	       @Override
+	       public void onClick(View v)
+	       {
+		    ActivityOptionsCompat actop = ActivityOptionsCompat.makeSceneTransitionAnimation(RecruiterProfile.this , profile , ViewCompat.getTransitionName(profile));
+		    startActivity(new Intent(RecruiterProfile.this , ShowImage.class));
+	       }
+	  });
      }
+
      public void retrieve()
      {
 	  FirebaseUser user = mAuth.getCurrentUser();
@@ -64,7 +77,10 @@ public class RecruiterProfile extends AppCompatActivity
 		    city.setText(dataSnapshot.child("city").getValue(String.class));
 		    mobile.setText(dataSnapshot.child("Contact number").getValue(String.class));
 		    state.setText(dataSnapshot.child("State").getValue(String.class));
-		    Picasso.get().load(dataSnapshot.child("urlToImage").getValue().toString()).transform(new CropCircleTransformation()).into(profile);
+		    if(dataSnapshot.hasChild("urlToImage"))
+		    {
+			 Picasso.get().load(dataSnapshot.child("urlToImage").getValue().toString()).transform(new CropCircleTransformation()).into(profile);
+		    }
 	       }
 
 	       @Override
@@ -74,6 +90,7 @@ public class RecruiterProfile extends AppCompatActivity
 	       }
 	  });
      }
+
      @Override
      public void onBackPressed()
      {
@@ -83,6 +100,6 @@ public class RecruiterProfile extends AppCompatActivity
 
      public void edit_recruiter(View v)
      {
-          startActivity(new Intent(RecruiterProfile.this , RecruiterEdit.class));
+	  startActivity(new Intent(RecruiterProfile.this , RecruiterEdit.class));
      }
 }

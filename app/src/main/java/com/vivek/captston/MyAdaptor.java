@@ -3,6 +3,7 @@ package com.vivek.captston;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -33,9 +34,20 @@ public class MyAdaptor extends RecyclerView.Adapter<MyAdaptor.MyHolder> {
     }
     @Override
     public void onBindViewHolder( MyAdaptor.MyHolder holder,final int position) {
+        // SharedPreferences sharedPreferences= getSharedPreferences("Categories", Context.MODE_PRIVATE);
+        //SharedPreferences.Editor editor=sharedPreferences.edit();
+        //String categorie;
+        SharedPreferences sharedPreferences;
+        final SharedPreferences.Editor editor;
+        sharedPreferences=ct.getSharedPreferences("Getkey",Context.MODE_PRIVATE);
+        editor=sharedPreferences.edit();
+        final String key;
+
         final Person p1 = al.get(position);
         holder.Name.setText(p1.getName());
         Log.d("1st check" , String.valueOf(0));
+
+        key=p1.getId();
 
         holder.Rating.setText(p1.getRating());
         Log.d("2nd check" , String.valueOf(1));
@@ -48,6 +60,9 @@ public class MyAdaptor extends RecyclerView.Adapter<MyAdaptor.MyHolder> {
             public void onClick(View view) {
                 Toast.makeText(ct,"Clicked "+ position,Toast.LENGTH_SHORT).show();
                 //ct.startActivity(new Intent(ct,Rec_Show_Seeker.class));
+                Toast.makeText(ct,"Id"+key,Toast.LENGTH_SHORT).show();
+                editor.putString("key",key);
+                editor.commit();
                 ct.startActivity(new Intent(ct,Show_Available_worker_Profile.class));
 
             }

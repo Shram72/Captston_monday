@@ -1,66 +1,121 @@
 package com.vivek.captston;
 
+import android.app.ProgressDialog;
+import android.content.Intent;
+import android.provider.ContactsContract;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.Spinner;
+import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
-public class Seeker_Edit_Profile extends AppCompatActivity implements View.OnClickListener,AdapterView.OnItemSelectedListener {
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import com.squareup.picasso.Picasso;
 
-    Spinner spinner_gender,spinner_profession;
-    String Profession="";
+import de.hdodenhof.circleimageview.CircleImageView;
+import jp.wasabeef.picasso.transformations.CropCircleTransformation;
+
+public class Seeker_Edit_Profile extends AppCompatActivity
+{
+
+    FirebaseAuth mAuth;
+    DatabaseReference mDatabase, msubref;
+    EditText name, mobile, state, city, address , profession;
+    TextView mail, aadhaar;
+    CircleImageView profile;
+    ProgressDialog pd;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_seeker__edit__profile);
-        setTitle("Edit Profile");
-        String[] items = new String[]{"Select", "Male", "Female"};
 
-        spinner_gender  = (Spinner)findViewById(R.id.spinner_gender);
-        spinner_profession  = (Spinner)findViewById(R.id.spinner_profession);
+        name = (EditText)findViewById(R.id.name_seeker_edit);
+        mail = (TextView)findViewById(R.id.mail_seeker_edit);
+        address = (EditText)findViewById(R.id.seeker_address_edit);
+        aadhaar = (TextView)findViewById(R.id.seeker_aadhaar_edit);
+        city = (EditText)findViewById(R.id.seeker_city_edit);
+        mobile = (EditText)findViewById(R.id.seeker_mobile_edit);
+        state = (EditText)findViewById(R.id.seeker_state_edit);
+        profession = (EditText) findViewById(R.id.profesion_seeker_edit);
+        profile = (CircleImageView)findViewById(R.id.seeker_image_edit);
+        pd = new ProgressDialog(this);
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, items);
-
-        spinner_gender.setAdapter(adapter);
-        spinner_gender.setOnItemSelectedListener(Seeker_Edit_Profile.this);
-
-
-        String[] items1 = new String[]{"Electrician", "BrickLayer", "Carpenter","Painter"};
-
-        ArrayAdapter<String> profession_adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, items1);
-        spinner_profession.setAdapter(profession_adapter);
-        spinner_profession.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        mDatabase = FirebaseDatabase.getInstance().getReference();
+        mAuth = FirebaseAuth.getInstance();
+        profile.setOnClickListener(new View.OnClickListener()
+        {
             @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                Profession=parent.getItemAtPosition(position).toString();
-                Toast.makeText(getApplicationContext(), "Selected "+parent.getItemAtPosition(position), Toast.LENGTH_SHORT).show();
+            public void onClick(View v)
+            {
+                Toast.makeText(Seeker_Edit_Profile.this , "Avneesh Chutiya" , Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(getApplicationContext() , PhotoActivity.class));
+            }
+        });
+
+        Toast.makeText(this , "Test In Profile" , Toast.LENGTH_SHORT).show();
+        retrieve();
+
+    }
+
+    public void retrieve()
+    {
+        FirebaseUser user = mAuth.getCurrentUser();
+        msubref = mDatabase.child("user").child(user.getUid());
+        msubref.addListenerForSingleValueEvent(new ValueEventListener()
+        {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot)
+            {
+                name.setText(dataSnapshot.child("Name").getValue(String.class));
+                mail.setText(dataSnapshot.child("Email").getValue(String.class));
+                address.setText(dataSnapshot.child("Street number").getValue(String.class));
+                aadhaar.setText(dataSnapshot.child("Aadhar number").getValue(String.class));
+                city.setText(dataSnapshot.child("city").getValue(String.class));
+                mobile.setText(dataSnapshot.child("Contact number").getValue(String.class));
+                profession.setText(dataSnapshot.child("Profession").getValue(String.class));
+                state.setText(dataSnapshot.child("State").getValue(String.class));
+                if(dataSnapshot.hasChild("urlToImage"))
+                {
+                    Picasso.get().load(dataSnapshot.child("urlToImage").getValue().toString()).transform(new CropCircleTransformation()).into(profile);
+                }
             }
 
             @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-                Profession="";
-                return;
+            public void onCancelled(@NonNull DatabaseError databaseError)
+            {
 
             }
         });
     }
 
-    @Override
-    public void onClick(View v) {
+    public void updatedata(View v)
+    {
+        FirebaseUser user = mAuth.getCurrentUser();
+        msubref = mDatabase.child("user").child(user.getUid());
+        pd.setTitle("Please Wait Wile We Update....");
+        pd.show();
 
-    }
+        msubref.child("Name").setValue(name.getText().toString());
+        msubref.child("Street number").setValue(address.getText().toString());
+        msubref.child("city").setValue(city.getText().toString());
+        msubref.child("State").setValue(state.getText().toString());
+        msubref.child("Contact number").setValue(mobile.getText().toString());
 
-    @Override
-    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        pd.setCanceledOnTouchOutside(false);
+        pd.cancel();
 
-    }
-
-    @Override
-    public void onNothingSelected(AdapterView<?> parent) {
+        startActivity(new Intent(Seeker_Edit_Profile.this , Seeker_View_Profile.class));
+        finish();
 
     }
 }

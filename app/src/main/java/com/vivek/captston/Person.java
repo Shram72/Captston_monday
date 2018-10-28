@@ -4,6 +4,7 @@ public class Person {
     int Image;
     String Name;
     String Rating;
+    String id;
 
     public int getImage() {
         return Image;
@@ -27,5 +28,13 @@ public class Person {
 
     public void setRating(String Rating) {
         this.Rating = Rating;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 }

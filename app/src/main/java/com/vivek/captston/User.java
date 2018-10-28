@@ -19,7 +19,7 @@ public class User {
     private String Alternate_Contact_Number;
 
     public User(String email, String id, String contact_Number, String aadhar_Number, String street_No, String pincode, String state, String city, String gender, String profession, String type, String name, String alternate_Contact_Number) {
-       Email = email;
+        Email = email;
         Id = id;
         Contact_Number = contact_Number;
         Aadhar_Number = aadhar_Number;

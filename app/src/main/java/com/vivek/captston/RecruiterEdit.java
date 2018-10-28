@@ -31,7 +31,7 @@ public class RecruiterEdit extends AppCompatActivity
      EditText name, mobile, state, city, address;
      TextView mail, aadhaar;
      CircleImageView profile;
-     ProgressDialog pd ;
+     ProgressDialog pd;
 
      @Override
      protected void onCreate(Bundle savedInstanceState)
@@ -57,7 +57,7 @@ public class RecruiterEdit extends AppCompatActivity
 	       public void onClick(View v)
 	       {
 		    Toast.makeText(RecruiterEdit.this , "Avneesh Chutiya" , Toast.LENGTH_SHORT).show();
-		    startActivity(new Intent(getApplicationContext(), PhotoActivity.class));
+		    startActivity(new Intent(getApplicationContext() , PhotoActivity.class));
 	       }
 	  });
 
@@ -82,7 +82,10 @@ public class RecruiterEdit extends AppCompatActivity
 		    city.setText(dataSnapshot.child("city").getValue(String.class));
 		    mobile.setText(dataSnapshot.child("Contact number").getValue(String.class));
 		    state.setText(dataSnapshot.child("State").getValue(String.class));
-		    Picasso.get().load(dataSnapshot.child("urlToImage").getValue().toString()).transform(new CropCircleTransformation()).into(profile);
+		    if(dataSnapshot.hasChild("urlToImage"))
+		    {
+			 Picasso.get().load(dataSnapshot.child("urlToImage").getValue().toString()).transform(new CropCircleTransformation()).into(profile);
+		    }
 	       }
 
 	       @Override
