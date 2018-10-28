@@ -1,30 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
-    android:layout_width="match_parent"
-    android:layout_height="190dp"
-    android:background="@drawable/navigation"
-    android:padding="20dp">
-    <ImageView
+     android:layout_width="match_parent"
+     android:layout_height="190dp"
+     android:background="@drawable/navigation"
+     android:orientation="vertical"
+     android:padding="20dp"
+     android:transitionGroup="true">
 
-        android:id="@+id/headerpic"
-         android:src="@drawable/profileimage"
-        android:layout_width="100dp"
-        android:onClick="dothis"
-        android:layout_height="100dp"/>
+     <de.hdodenhof.circleimageview.CircleImageView
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/header_name"
-        android:text="Name "
-        android:textColor="@color/white"
-        android:textStyle="bold"
-        android:layout_marginTop="5dp"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/header_mail_id"
-        android:text="user@gmail.com"
-        android:textColor="@color/white" />
+	  android:id="@+id/headerpic"
+	  android:layout_width="100dp"
+	  android:layout_height="100dp"
+	  android:onClick="dothis"
+	  android:src="@drawable/profile"
+	  android:transitionName="trans1" />
+
+     <TextView
+	  android:id="@+id/header_name"
+	  android:layout_width="wrap_content"
+	  android:layout_height="wrap_content"
+	  android:layout_marginTop="5dp"
+	  android:text="Name "
+	  android:textColor="@color/white"
+	  android:textStyle="bold" />
+
+     <TextView
+	  android:id="@+id/header_mail_id"
+	  android:layout_width="wrap_content"
+	  android:layout_height="wrap_content"
+	  android:text="user@gmail.com"
+	  android:textColor="@color/white" />
 </LinearLayout>
