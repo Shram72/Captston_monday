@@ -7,498 +7,473 @@
      tools:context=".Show_Available_worker_Profile">
 
 
-    <RelativeLayout
+     <RelativeLayout
 
-         android:id="@+id/rellay1"
+	  android:id="@+id/rellay1"
 
-         android:layout_width="match_parent"
+	  android:layout_width="match_parent"
 
-         android:layout_height="wrap_content"
+	  android:layout_height="wrap_content"
 
-         android:background="@drawable/grad"
+	  android:background="@drawable/grad"
 
-         android:paddingBottom="20dp">
+	  android:paddingBottom="20dp">
 
 
+	  <RelativeLayout
 
-        <RelativeLayout
+	       android:id="@+id/imgUser"
 
-             android:id="@+id/imgUser"
+	       android:layout_width="wrap_content"
 
-             android:layout_width="wrap_content"
+	       android:layout_height="wrap_content"
 
-             android:layout_height="wrap_content"
+	       android:layout_centerHorizontal="true"
 
-             android:layout_centerHorizontal="true"
+	       android:layout_marginTop="20dp"
 
-             android:layout_marginTop="20dp"
+	       android:background="@drawable/circle_border">
 
-             android:background="@drawable/circle_border">
 
+	       <ImageView
 
+		    android:id="@+id/img_profile"
 
-            <ImageView
+		    android:layout_width="120dp"
 
-                 android:layout_width="120dp"
+		    android:layout_height="120dp"
 
-                 android:layout_height="120dp"
+		    android:layout_margin="9dp"
 
-                 android:layout_margin="9dp"
+		    android:adjustViewBounds="true"
 
-                 android:adjustViewBounds="true"
+		    android:background="@drawable/circle"
 
-                 android:background="@drawable/circle"
+		    android:padding="3dp"
 
-                 android:padding="3dp"
+		    android:scaleType="centerInside"
 
-                 android:id="@+id/img_profile"
+		    android:src="@drawable/av" />
 
-                 android:scaleType="centerInside"
 
-                 android:src="@drawable/av" />
+	  </RelativeLayout>
 
 
+	  <TextView
 
-        </RelativeLayout>
+	       android:id="@+id/tv_name"
 
+	       android:layout_width="wrap_content"
 
+	       android:layout_height="wrap_content"
 
-        <TextView
+	       android:layout_below="@+id/imgUser"
 
-             android:id="@+id/tv_name"
+	       android:layout_centerHorizontal="true"
 
-             android:layout_width="wrap_content"
+	       android:layout_marginTop="15sp"
 
-             android:layout_height="wrap_content"
+	       android:fontFamily="sans-serif-light"
 
-             android:layout_below="@+id/imgUser"
+	       android:text="Name"
 
-             android:layout_centerHorizontal="true"
+	       android:textColor="@color/white"
 
-             android:layout_marginTop="15sp"
+	       android:textSize="32sp" />
 
-             android:fontFamily="sans-serif-light"
 
-             android:text="Name"
+	  <TextView
 
-             android:textColor="@color/white"
+	       android:id="@+id/tv_profession"
 
-             android:textSize="32sp" />
+	       android:layout_width="wrap_content"
 
+	       android:layout_height="wrap_content"
 
+	       android:layout_below="@+id/tv_name"
 
+	       android:layout_centerHorizontal="true"
 
+	       android:fontFamily="sans-serif"
 
-        <TextView
+	       android:text="Profession"
 
-             android:id="@+id/tv_profession"
+	       android:textAllCaps="true"
 
-             android:layout_width="wrap_content"
+	       android:textColor="@color/address"
 
-             android:layout_height="wrap_content"
+	       android:textSize="14sp" />
 
-             android:layout_below="@+id/tv_name"
 
-             android:layout_centerHorizontal="true"
+     </RelativeLayout>
 
-             android:fontFamily="sans-serif"
 
-             android:text="Profession"
+     <LinearLayout
 
-             android:textAllCaps="true"
+	  android:id="@+id/linlay1"
 
-             android:textColor="@color/address"
+	  android:layout_width="match_parent"
 
-             android:textSize="14sp" />
+	  android:layout_height="wrap_content"
 
+	  android:layout_below="@id/rellay1"
 
+	  android:orientation="horizontal">
 
 
+	  <RelativeLayout
 
-    </RelativeLayout>
+	       android:layout_width="match_parent"
 
+	       android:layout_height="wrap_content"
 
+	       android:layout_gravity="center"
 
-    <LinearLayout
+	       android:layout_weight="1"
 
-         android:id="@+id/linlay1"
+	       android:background="@color/followersBg"
 
-         android:layout_width="match_parent"
+	       android:gravity="center"
 
-         android:layout_height="wrap_content"
+	       android:paddingTop="5dp"
 
-         android:layout_below="@id/rellay1"
+	       android:paddingBottom="5dp">
 
-         android:orientation="horizontal">
 
+	       <LinearLayout
 
+		    android:layout_width="wrap_content"
 
-        <RelativeLayout
+		    android:layout_height="wrap_content"
 
-             android:layout_width="match_parent"
+		    android:gravity="center_horizontal"
 
-             android:layout_height="wrap_content"
+		    android:orientation="vertical">
 
-             android:layout_gravity="center"
 
-             android:layout_weight="1"
+		    <TextView
 
-             android:background="@color/followersBg"
+			 android:id="@+id/tv_rating_num"
 
-             android:gravity="center"
+			 android:layout_width="wrap_content"
 
-             android:paddingBottom="5dp"
+			 android:layout_height="wrap_content"
 
-             android:paddingTop="5dp">
+			 android:fontFamily="sans-serif-light"
 
+			 android:text="4/5"
 
+			 android:textColor="@color/white"
 
-            <LinearLayout
+			 android:textSize="25sp" />
 
-                 android:layout_width="wrap_content"
 
-                 android:layout_height="wrap_content"
+		    <TextView
 
-                 android:gravity="center_horizontal"
+			 android:layout_width="wrap_content"
 
-                 android:orientation="vertical">
+			 android:layout_height="wrap_content"
 
+			 android:fontFamily="sans-serif-light"
 
+			 android:text="Rating"
 
-                <TextView
+			 android:textAllCaps="true"
 
-                     android:layout_width="wrap_content"
+			 android:textColor="@color/white"
 
-                     android:layout_height="wrap_content"
+			 android:textSize="13sp" />
 
-                     android:fontFamily="sans-serif-light"
 
-                     android:text="4/5"
+	       </LinearLayout>
 
-                     android:id="@+id/tv_rating_num"
 
-                     android:textColor="@color/white"
+	  </RelativeLayout>
 
-                     android:textSize="25sp" />
 
+	  <RelativeLayout
 
+	       android:layout_width="match_parent"
 
-                <TextView
+	       android:layout_height="wrap_content"
 
-                     android:layout_width="wrap_content"
+	       android:layout_gravity="center"
 
-                     android:layout_height="wrap_content"
+	       android:layout_weight="1"
 
-                     android:fontFamily="sans-serif-light"
+	       android:background="@color/followingBg"
 
-                     android:text="Rating"
+	       android:gravity="center"
 
-                     android:textAllCaps="true"
+	       android:paddingTop="5dp"
 
-                     android:textColor="@color/white"
+	       android:paddingBottom="5dp">
 
-                     android:textSize="13sp" />
 
+	       <LinearLayout
 
+		    android:layout_width="wrap_content"
 
-            </LinearLayout>
+		    android:layout_height="wrap_content"
 
+		    android:gravity="center_horizontal"
 
+		    android:orientation="vertical">
 
-        </RelativeLayout>
 
+		    <TextView
 
+			 android:id="@+id/tv_experience_num"
 
-        <RelativeLayout
+			 android:layout_width="wrap_content"
 
-             android:layout_width="match_parent"
+			 android:layout_height="wrap_content"
 
-             android:layout_height="wrap_content"
+			 android:fontFamily="sans-serif-light"
 
-             android:layout_gravity="center"
+			 android:text="15"
 
-             android:layout_weight="1"
+			 android:textColor="@color/white"
 
-             android:background="@color/followingBg"
+			 android:textSize="25sp" />
 
-             android:gravity="center"
 
-             android:paddingBottom="5dp"
+		    <TextView
 
-             android:paddingTop="5dp">
+			 android:layout_width="wrap_content"
 
+			 android:layout_height="wrap_content"
 
+			 android:fontFamily="sans-serif-light"
 
-            <LinearLayout
+			 android:text="Experience"
 
-                 android:layout_width="wrap_content"
+			 android:textAllCaps="true"
 
-                 android:layout_height="wrap_content"
+			 android:textColor="@color/white"
 
-                 android:gravity="center_horizontal"
+			 android:textSize="13sp" />
 
-                 android:orientation="vertical">
 
+	       </LinearLayout>
 
 
-                <TextView
+	  </RelativeLayout>
 
-                     android:layout_width="wrap_content"
 
-                     android:layout_height="wrap_content"
+     </LinearLayout>
 
-                     android:fontFamily="sans-serif-light"
 
-                     android:text="15"
+     <RelativeLayout
 
-                     android:id="@+id/tv_experience_num"
+	  android:layout_width="match_parent"
 
-                     android:textColor="@color/white"
+	  android:layout_height="match_parent"
 
-                     android:textSize="25sp" />
+	  android:layout_below="@+id/linlay1">
 
 
+	  <LinearLayout
 
-                <TextView
+	       android:layout_width="match_parent"
 
-                     android:layout_width="wrap_content"
+	       android:layout_height="wrap_content"
 
-                     android:layout_height="wrap_content"
+	       android:layout_centerInParent="true"
 
-                     android:fontFamily="sans-serif-light"
+	       android:layout_marginLeft="30dp"
 
-                     android:text="Experience"
+	       android:layout_marginTop="20dp"
 
-                     android:textAllCaps="true"
+	       android:layout_marginRight="30dp"
 
-                     android:textColor="@color/white"
+	       android:orientation="vertical">
 
-                     android:textSize="13sp" />
 
+	       <LinearLayout
 
+		    android:layout_width="match_parent"
 
-            </LinearLayout>
+		    android:layout_height="wrap_content"
 
+		    android:orientation="vertical">
 
 
-        </RelativeLayout>
+		    <TextView
 
+			 android:layout_width="wrap_content"
 
+			 android:layout_height="wrap_content"
 
-    </LinearLayout>
+			 android:text="Email"
 
+			 android:textColor="@color/headings"
 
+			 android:textSize="13sp" />
 
 
+		    <TextView
 
-    <RelativeLayout
+			 android:id="@+id/tv_email_id"
 
-         android:layout_width="match_parent"
+			 android:layout_width="wrap_content"
 
-         android:layout_height="match_parent"
+			 android:layout_height="wrap_content"
 
-         android:layout_below="@+id/linlay1">
+			 android:fontFamily="sans-serif-light"
 
+			 android:textColor="#000000"
 
+			 android:textSize="18sp" />
 
-        <LinearLayout
 
-             android:layout_width="match_parent"
+		    <View
 
-             android:layout_height="wrap_content"
+			 android:layout_width="match_parent"
 
-             android:layout_centerInParent="true"
+			 android:layout_height="1dp"
 
-             android:layout_marginLeft="30dp"
+			 android:layout_marginTop="15dp"
 
-             android:layout_marginRight="30dp"
+			 android:background="@color/grey" />
 
-             android:layout_marginTop="20dp"
 
-             android:orientation="vertical">
+	       </LinearLayout>
 
 
+	       <LinearLayout
 
-            <LinearLayout
+		    android:layout_width="match_parent"
 
-                 android:layout_width="match_parent"
+		    android:layout_height="wrap_content"
 
-                 android:layout_height="wrap_content"
+		    android:layout_marginTop="15dp"
 
-                 android:orientation="vertical">
+		    android:orientation="vertical">
 
 
+		    <TextView
 
-                <TextView
+			 android:layout_width="wrap_content"
 
-                     android:layout_width="wrap_content"
+			 android:layout_height="wrap_content"
 
-                     android:layout_height="wrap_content"
+			 android:text="Phone Number"
 
-                     android:text="Email"
+			 android:textColor="@color/headings"
 
-                     android:textColor="@color/headings"
+			 android:textSize="13sp" />
 
-                     android:textSize="13sp" />
 
+		    <TextView
 
+			 android:id="@+id/tv_phone"
 
-                <TextView
+			 android:layout_width="wrap_content"
 
-                     android:layout_width="wrap_content"
+			 android:layout_height="wrap_content"
 
-                     android:layout_height="wrap_content"
+			 android:fontFamily="sans-serif-light"
+			 android:onClick="showconfirm"
 
-                     android:fontFamily="sans-serif-light"
+			 android:textColor="#000000"
 
-                     android:textColor="#000000"
+			 android:textSize="18sp" />
 
-                     android:id="@+id/tv_email_id"
 
-                     android:textSize="18sp" />
+		    <View
 
+			 android:layout_width="match_parent"
 
+			 android:layout_height="1dp"
 
-                <View
+			 android:layout_marginTop="15dp"
 
-                     android:layout_width="match_parent"
+			 android:background="@color/grey" />
 
-                     android:layout_height="1dp"
 
-                     android:layout_marginTop="15dp"
+	       </LinearLayout>
 
-                     android:background="@color/grey" />
 
+	       <LinearLayout
 
+		    android:layout_width="match_parent"
 
-            </LinearLayout>
+		    android:layout_height="wrap_content"
 
+		    android:layout_marginTop="15dp"
 
+		    android:orientation="vertical">
 
-            <LinearLayout
 
-                 android:layout_width="match_parent"
+		    <TextView
 
-                 android:layout_height="wrap_content"
+			 android:layout_width="wrap_content"
 
-                 android:layout_marginTop="15dp"
+			 android:layout_height="wrap_content"
 
-                 android:orientation="vertical">
+			 android:text="Alternate Phone Number"
 
+			 android:textColor="@color/headings"
 
+			 android:textSize="13sp" />
 
-                <TextView
 
-                     android:layout_width="wrap_content"
+		    <TextView
 
-                     android:layout_height="wrap_content"
+			 android:id="@+id/tv_alter_phone"
 
-                     android:text="Phone Number"
+			 android:layout_width="wrap_content"
 
-                     android:textColor="@color/headings"
+			 android:layout_height="wrap_content"
 
-                     android:textSize="13sp" />
+			 android:fontFamily="sans-serif-light"
 
+			 android:textColor="#000000"
 
+			 android:textSize="18sp" />
 
-                <TextView
 
-                     android:layout_width="wrap_content"
+		    <View
 
-                     android:layout_height="wrap_content"
+			 android:layout_width="match_parent"
 
-                     android:fontFamily="sans-serif-light"
+			 android:layout_height="1dp"
 
-                     android:textColor="#000000"
+			 android:layout_marginTop="15dp"
 
-                     android:id="@+id/tv_phone"
+			 android:background="@color/grey" />
+		    <LinearLayout
+			 android:id="@+id/confirmandfinish"
+			 android:visibility="gone"
+			 android:layout_width="match_parent"
+			 android:layout_height="match_parent"
+			 android:orientation="horizontal">
+			 <Button
+			      android:id="@+id/confirm"
+			      android:layout_width="wrap_content"
+			      android:layout_height="wrap_content"
+			      android:layout_weight="1"
+			      android:onClick="showdone"
+			      android:text="Confirm"/>
+			 <Button
+			      android:id="@+id/finish"
+			      android:layout_width="wrap_content"
+			      android:clickable="false"
+			      android:layout_height="wrap_content"
+			      android:layout_weight="1"
+			      android:onClick="review"
+			      android:text="Work Done"/>
+		    </LinearLayout>
 
-                     android:textSize="18sp" />
 
+	       </LinearLayout>
 
 
-                <View
+	  </LinearLayout>
 
-                     android:layout_width="match_parent"
 
-                     android:layout_height="1dp"
-
-                     android:layout_marginTop="15dp"
-
-                     android:background="@color/grey" />
-
-
-
-            </LinearLayout>
-
-
-
-            <LinearLayout
-
-                 android:layout_width="match_parent"
-
-                 android:layout_height="wrap_content"
-
-                 android:layout_marginTop="15dp"
-
-                 android:orientation="vertical">
-
-
-
-                <TextView
-
-                     android:layout_width="wrap_content"
-
-                     android:layout_height="wrap_content"
-
-                     android:text="Alternate Phone Number"
-
-                     android:textColor="@color/headings"
-
-                     android:textSize="13sp" />
-
-
-
-                <TextView
-
-                     android:layout_width="wrap_content"
-
-                     android:layout_height="wrap_content"
-
-                     android:fontFamily="sans-serif-light"
-
-                     android:id="@+id/tv_alter_phone"
-
-                     android:textColor="#000000"
-
-                     android:textSize="18sp" />
-
-
-
-                <View
-
-                     android:layout_width="match_parent"
-
-                     android:layout_height="1dp"
-
-                     android:layout_marginTop="15dp"
-
-                     android:background="@color/grey" />
-
-
-
-            </LinearLayout>
-
-
-
-
-
-        </LinearLayout>
-
-
-
-    </RelativeLayout>
-
+     </RelativeLayout>
 
 
 </RelativeLayout>

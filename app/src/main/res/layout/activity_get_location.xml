@@ -23,6 +23,7 @@
         android:layout_width="match_parent"
         android:layout_margin="20dp"
         android:layout_height="60dp"
+         android:onClick="dothis"
         app:cardBackgroundColor="@color/colorPrimary"
         android:innerRadius="0dp"
         android:layout_gravity="left"

@@ -1,309 +1,323 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:orientation="vertical"
-    android:background="@drawable/white"
-    android:layout_height="match_parent"
-    tools:context=".SignUp">
+     xmlns:app="http://schemas.android.com/apk/res-auto"
+     xmlns:tools="http://schemas.android.com/tools"
+     android:layout_width="match_parent"
+     android:layout_height="match_parent"
+     android:background="@drawable/white"
+     android:orientation="vertical"
+     tools:context=".SignUp">
 
-    <ScrollView
-        android:layout_height="match_parent"
-        android:layout_width="match_parent">
-        <LinearLayout
-            android:orientation="vertical"
-            android:layout_height="match_parent"
-            android:layout_width="match_parent">
+     <ScrollView
+	  android:layout_width="match_parent"
+	  android:layout_height="match_parent">
 
-    <ImageView
-        android:layout_height="120dp"
-        android:layout_width="240dp"
-        android:src="@drawable/logo"
-        android:padding="4dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
-        android:layout_gravity="center_horizontal"/>
+	  <LinearLayout
+	       android:layout_width="match_parent"
+	       android:layout_height="match_parent"
+	       android:orientation="vertical">
 
-    <EditText
-        android:background="@android:color/transparent"
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent"
-        android:padding="8dp"
-        android:layout_marginTop="10dp"
-        android:id="@+id/editTextName"
-        android:maxLines="1"
-        android:hint="Name"
-        android:ems="10"
-        android:drawablePadding="12dp"/>
+	       <ImageView
+		    android:layout_width="240dp"
+		    android:layout_height="120dp"
+		    android:layout_gravity="center_horizontal"
+		    android:layout_marginTop="10dp"
+		    android:layout_marginBottom="10dp"
+		    android:padding="4dp"
+		    android:src="@drawable/logo" />
 
-   <!--         <EditText
-                android:background="@android:color/transparent"
-                android:layout_height="wrap_content"
-                android:layout_width="match_parent"
-                android:padding="8dp"
-                android:layout_marginTop="10dp"
-                android:id="@+id/editTextProfession"
-                android:maxLines="1"
-                android:hint="Profession"
-                android:ems="10"
-                android:drawablePadding="12dp"/>    -->
+	       <EditText
+		    android:lines="1"
+		    android:id="@+id/editTextName"
+		    android:layout_width="match_parent"
+		    android:layout_height="wrap_content"
+		    android:layout_marginTop="10dp"
+		    android:background="@android:color/transparent"
+		    android:drawablePadding="12dp"
+		    android:ems="10"
+		    android:hint="Name"
+		    android:inputType=""
+		    android:maxLines="1"
+		    android:padding="8dp" />
 
-
-
-
-            <EditText
-                android:background="@android:color/transparent"
-                android:layout_height="wrap_content"
-                android:layout_width="match_parent"
-                android:padding="8dp"
-                android:layout_marginTop="10dp"
-                android:id="@+id/editTextAadhar_No"
-                android:maxLines="1"
-                android:hint="Aadhar Card Number"
-                android:ems="10"
-                android:drawablePadding="12dp"/>
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent"
-        android:layout_marginTop="4dp"
-        android:weightSum="2">
-
-    <TextView
-        android:layout_height="wrap_content"
-        android:layout_width="0dp"
-        android:padding="8dp"
-        android:text="Gender"
-        android:layout_weight="1"/>
-
-    <Spinner
-        android:layout_height="wrap_content"
-        android:layout_width="0dp"
-        android:layout_weight="2"
-        android:spinnerMode="dropdown"
-        android:id="@+id/spinner_gender"> </Spinner>
-
-</LinearLayout>
+	       <!--         <EditText
+			    android:background="@android:color/transparent"
+			    android:layout_height="wrap_content"
+			    android:layout_width="match_parent"
+			    android:padding="8dp"
+			    android:layout_marginTop="10dp"
+			    android:id="@+id/editTextProfession"
+			    android:maxLines="1"
+			    android:hint="Profession"
+			    android:ems="10"
+			    android:drawablePadding="12dp"/>    -->
 
 
-    <LinearLayout android:orientation="horizontal"
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent">
+	       <EditText
+		    android:lines="1"
+		    android:id="@+id/editTextAadhar_No"
+		    android:layout_width="match_parent"
+		    android:layout_height="wrap_content"
+		    android:layout_marginTop="10dp"
+		    android:background="@android:color/transparent"
+		    android:drawablePadding="12dp"
+		    android:ems="10"
+		    android:hint="Aadhar Card Number"
+		    android:maxLines="1"
+		    android:padding="8dp" />
+
+	       <LinearLayout
+		    android:layout_width="match_parent"
+		    android:layout_height="wrap_content"
+		    android:layout_marginTop="4dp"
+		    android:orientation="horizontal"
+		    android:weightSum="2">
+
+		    <TextView
+			 android:layout_width="0dp"
+			 android:layout_height="wrap_content"
+			 android:layout_weight="1"
+			 android:padding="8dp"
+			 android:text="Gender" />
+
+		    <Spinner
+			 android:id="@+id/spinner_gender"
+			 android:layout_width="0dp"
+			 android:layout_height="wrap_content"
+			 android:layout_weight="2"
+			 android:spinnerMode="dropdown"></Spinner>
+
+	       </LinearLayout>
 
 
-    <RadioGroup
-        android:orientation="horizontal"
-        android:layout_height="wrap_content"
-        android:id="@+id/Radiogroup_type"
-        android:layout_width="wrap_content">
-
-    <RadioButton
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        android:padding="8dp"
-        android:layout_marginTop="10dp"
-        android:text="Recruiter"
-        android:id="@+id/Radio_Btn_recruiter"
-        android:textColor="@android:color/holo_blue_dark"
-        android:onClick="onRadioButtonClicked"
-        android:layout_marginLeft="30dp"/>
-
-    <RadioButton
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        android:padding="8dp"
-        android:layout_marginTop="10dp"
-        android:text="Seeker"
-        android:id="@+id/Radio_btn_seeker"
-        android:textColor="@android:color/holo_blue_dark"
-        android:onClick="onRadioButtonClicked"
-        android:layout_marginLeft="60dp"/>
-
-</RadioGroup>
-
-</LinearLayout>
+	       <LinearLayout
+		    android:layout_width="match_parent"
+		    android:layout_height="wrap_content"
+		    android:orientation="horizontal">
 
 
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_height="wrap_content"
-                android:layout_width="match_parent"
-                android:layout_marginTop="4dp"
-                android:weightSum="2">
+		    <RadioGroup
+			 android:id="@+id/Radiogroup_type"
+			 android:layout_width="wrap_content"
+			 android:layout_height="wrap_content"
+			 android:orientation="horizontal">
 
-                <TextView
-                    android:layout_height="wrap_content"
-                    android:layout_width="0dp"
-                    android:padding="8dp"
-                    android:text="Profession"
-                    android:layout_weight="1"/>
+			 <RadioButton
+			      android:id="@+id/Radio_Btn_recruiter"
+			      android:layout_width="wrap_content"
+			      android:layout_height="wrap_content"
+			      android:layout_marginLeft="30dp"
+			      android:layout_marginTop="10dp"
+			      android:onClick="onRadioButtonClicked"
+			      android:padding="8dp"
+			      android:text="Recruiter"
+			      android:textColor="@android:color/holo_blue_dark" />
 
-                <Spinner
-                    android:layout_height="wrap_content"
-                    android:layout_width="0dp"
-                    android:layout_weight="2"
-                    android:spinnerMode="dropdown"
-                    android:id="@+id/spinner_profession"> </Spinner>
+			 <RadioButton
+			      android:id="@+id/Radio_btn_seeker"
+			      android:layout_width="wrap_content"
+			      android:layout_height="wrap_content"
+			      android:layout_marginLeft="60dp"
+			      android:layout_marginTop="10dp"
+			      android:onClick="onRadioButtonClicked"
+			      android:padding="8dp"
+			      android:text="Seeker"
+			      android:textColor="@android:color/holo_blue_dark" />
 
-            </LinearLayout>
+		    </RadioGroup>
 
-    <EditText
-        android:background="@android:color/transparent"
-        android:id="@+id/editTextEmail"
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent"
-        android:inputType="textEmailAddress"
-        android:padding="8dp"
-        android:layout_marginTop="10dp"
-        android:maxLines="1"
-        android:hint="Email Id"
-        android:ems="10"
-        android:drawablePadding="12dp"/>
-
-    <EditText
-        android:background="@android:color/transparent"
-        android:id="@+id/editTextPassword"
-        android:layout_height="wrap_content"
-        android:inputType="textPassword"
-        android:layout_width="match_parent"
-        android:padding="8dp"
-        android:layout_marginTop="10dp"
-        android:maxLines="1"
-        android:hint="Password"
-        android:ems="10"
-        android:drawablePadding="12dp"/>
-
-    <EditText
-        android:background="@android:color/transparent"
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent"
-        android:id="@+id/editTextConfirmPassword"
-        android:inputType="textPassword"
-        android:padding="8dp"
-        android:layout_marginTop="10dp"
-        android:maxLines="1"
-        android:hint="Confirm Password"
-        android:ems="10"
-        android:drawablePadding="12dp"/>
-
-            <EditText
-                android:background="@android:color/transparent"
-                android:layout_height="wrap_content"
-                android:layout_width="match_parent"
-                android:id="@+id/editTextStreet"
-                android:padding="8dp"
-                android:layout_marginTop="10dp"
-                android:maxLines="1"
-                android:hint="Street"
-                android:ems="10"
-                android:drawablePadding="12dp"/>
-
-    <EditText
-        android:background="@android:color/transparent"
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent"
-        android:id="@+id/editTextState"
-        android:padding="8dp"
-        android:layout_marginTop="10dp"
-        android:maxLines="1"
-        android:hint="State"
-        android:ems="10"
-        android:drawablePadding="12dp"/>
-
-    <EditText
-        android:background="@android:color/transparent"
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent"
-        android:id="@+id/editTextCity"
-        android:padding="8dp"
-        android:layout_marginTop="10dp"
-        android:maxLines="1"
-        android:hint="City"
-        android:ems="10"
-        android:drawablePadding="12dp"/>
-
-    <EditText
-        android:background="@android:color/transparent"
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent"
-        android:id="@+id/editTextPincode"
-        android:inputType="number"
-        android:padding="8dp"
-        android:layout_marginTop="10dp"
-        android:maxLines="1"
-        android:hint="PIN Code"
-        android:ems="10"
-        android:drawablePadding="12dp"/>
-
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_height="wrap_content"
-                android:layout_width="match_parent">
-
-    <TextView
-        android:background="@android:color/transparent"
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        android:padding="8dp"
-        android:layout_marginTop="10dp"
-        android:drawablePadding="12dp"
-        android:text="+91-"/>
-
-    <EditText
-        android:background="@android:color/transparent"
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent"
-        android:id="@+id/editTextContact_No"
-        android:padding="8dp"
-        android:layout_marginTop="10dp"
-        android:maxLines="1"
-        android:hint="Contact No."
-        android:inputType="number"
-        android:ems="10"
-        android:drawablePadding="12dp"/>
-
-</LinearLayout>
+	       </LinearLayout>
 
 
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent">
+	       <LinearLayout
+		    android:layout_width="match_parent"
+		    android:layout_height="wrap_content"
+		    android:layout_marginTop="4dp"
+		    android:orientation="horizontal"
+		    android:weightSum="2">
 
-    <TextView android:background="@android:color/transparent"
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        android:padding="8dp"
-        android:layout_marginTop="10dp"
-        android:drawablePadding="12dp"
-        android:text="+91-"/>
+		    <TextView
+			 android:layout_width="0dp"
+			 android:layout_height="wrap_content"
+			 android:layout_weight="1"
+			 android:padding="8dp"
+			 android:text="Profession" />
 
-    <EditText
-        android:background="@android:color/transparent"
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent"
-        android:id="@+id/editTextAlternate_No"
-        android:inputType="number"
-        android:padding="8dp"
-        android:layout_marginTop="10dp"
-        android:maxLines="1"
-        android:hint=" Alternate Contact No."
-        android:ems="10"
-        android:drawablePadding="12dp"/>
+		    <Spinner
+			 android:id="@+id/spinner_profession"
+			 android:layout_width="0dp"
+			 android:layout_height="wrap_content"
+			 android:layout_weight="2"
+			 android:spinnerMode="dropdown"></Spinner>
 
-</LinearLayout>
+	       </LinearLayout>
 
-    <Button
-        android:background="@drawable/buttonstyle"
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        android:id="@+id/button_next"
-        android:layout_gravity="center"
-        android:text="Signup"
-        android:onClick="onNext"/>
+	       <EditText
+		    android:id="@+id/editTextEmail"
+		    android:lines="1"
+		    android:layout_width="match_parent"
+		    android:layout_height="wrap_content"
+		    android:layout_marginTop="10dp"
+		    android:background="@android:color/transparent"
+		    android:drawablePadding="12dp"
+		    android:ems="10"
+		    android:hint="Email Id"
+		    android:inputType="textEmailAddress"
+		    android:maxLines="1"
+		    android:padding="8dp" />
 
-</LinearLayout>
+	       <EditText
+		    android:lines="1"
+		    android:id="@+id/editTextPassword"
+		    android:layout_width="match_parent"
+		    android:layout_height="wrap_content"
+		    android:layout_marginTop="10dp"
+		    android:background="@android:color/transparent"
+		    android:drawablePadding="12dp"
+		    android:ems="10"
+		    android:hint="Password"
+		    android:inputType="textPassword"
+		    android:maxLines="1"
+		    android:padding="8dp" />
 
-</ScrollView>
+	       <EditText
+		    android:lines="1"
+		    android:id="@+id/editTextConfirmPassword"
+		    android:layout_width="match_parent"
+		    android:layout_height="wrap_content"
+		    android:layout_marginTop="10dp"
+		    android:background="@android:color/transparent"
+		    android:drawablePadding="12dp"
+		    android:ems="10"
+		    android:hint="Confirm Password"
+		    android:inputType="textPassword"
+		    android:maxLines="1"
+		    android:padding="8dp" />
+
+	       <EditText
+		    android:lines="1"
+		    android:id="@+id/editTextStreet"
+		    android:layout_width="match_parent"
+		    android:layout_height="wrap_content"
+		    android:layout_marginTop="10dp"
+		    android:background="@android:color/transparent"
+		    android:drawablePadding="12dp"
+		    android:ems="10"
+		    android:hint="Street"
+		    android:maxLines="1"
+		    android:padding="8dp" />
+
+	       <EditText
+		    android:lines="1"
+		    android:id="@+id/editTextState"
+		    android:layout_width="match_parent"
+		    android:layout_height="wrap_content"
+		    android:layout_marginTop="10dp"
+		    android:background="@android:color/transparent"
+		    android:drawablePadding="12dp"
+		    android:ems="10"
+		    android:hint="State"
+		    android:maxLines="1"
+		    android:padding="8dp" />
+
+	       <EditText
+		    android:lines="1"
+		    android:id="@+id/editTextCity"
+		    android:layout_width="match_parent"
+		    android:layout_height="wrap_content"
+		    android:layout_marginTop="10dp"
+		    android:background="@android:color/transparent"
+		    android:drawablePadding="12dp"
+		    android:ems="10"
+		    android:hint="City"
+		    android:maxLines="1"
+		    android:padding="8dp" />
+
+	       <EditText
+		    android:lines="1"
+		    android:id="@+id/editTextPincode"
+		    android:layout_width="match_parent"
+		    android:layout_height="wrap_content"
+		    android:layout_marginTop="10dp"
+		    android:background="@android:color/transparent"
+		    android:drawablePadding="12dp"
+		    android:ems="10"
+		    android:hint="PIN Code"
+		    android:inputType="number"
+		    android:maxLines="1"
+		    android:padding="8dp" />
+
+	       <LinearLayout
+		    android:layout_width="match_parent"
+		    android:layout_height="wrap_content"
+		    android:orientation="horizontal">
+
+		    <TextView
+			 android:layout_width="wrap_content"
+			 android:layout_height="wrap_content"
+			 android:layout_marginTop="10dp"
+			 android:background="@android:color/transparent"
+			 android:drawablePadding="12dp"
+			 android:padding="8dp"
+			 android:text="+91-" />
+
+		    <EditText
+			 android:lines="1"
+			 android:id="@+id/editTextContact_No"
+			 android:layout_width="match_parent"
+			 android:layout_height="wrap_content"
+			 android:layout_marginTop="10dp"
+			 android:background="@android:color/transparent"
+			 android:drawablePadding="12dp"
+			 android:ems="10"
+			 android:hint="Contact No."
+			 android:inputType="number"
+			 android:maxLines="1"
+			 android:padding="8dp" />
+
+	       </LinearLayout>
+
+
+	       <LinearLayout
+		    android:layout_width="match_parent"
+		    android:layout_height="wrap_content"
+		    android:orientation="horizontal">
+
+		    <TextView
+			 android:layout_width="wrap_content"
+			 android:layout_height="wrap_content"
+			 android:layout_marginTop="10dp"
+			 android:background="@android:color/transparent"
+			 android:drawablePadding="12dp"
+			 android:padding="8dp"
+			 android:text="+91-" />
+
+		    <EditText
+			 android:lines="1"
+			 android:id="@+id/editTextAlternate_No"
+			 android:layout_width="match_parent"
+			 android:layout_height="wrap_content"
+			 android:layout_marginTop="10dp"
+			 android:background="@android:color/transparent"
+			 android:drawablePadding="12dp"
+			 android:ems="10"
+			 android:hint=" Alternate Contact No."
+			 android:inputType="number"
+			 android:maxLines="1"
+			 android:padding="8dp" />
+
+	       </LinearLayout>
+
+	       <Button
+		    android:id="@+id/button_next"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_gravity="center"
+		    android:background="@drawable/buttonstyle"
+		    android:onClick="onNext"
+		    android:text="Signup" />
+
+	  </LinearLayout>
+
+     </ScrollView>
 </LinearLayout>

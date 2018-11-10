@@ -11,6 +11,8 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.ActivityOptionsCompat;
+import android.support.v4.view.ViewCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -38,6 +40,7 @@ import com.squareup.picasso.Picasso;
 
 import org.w3c.dom.Text;
 
+import de.hdodenhof.circleimageview.CircleImageView;
 import jp.wasabeef.picasso.transformations.CropCircleTransformation;
 
 public class Recruiter extends AppCompatActivity {
@@ -52,6 +55,7 @@ public class Recruiter extends AppCompatActivity {
     CardView electrician1, plumber1, bricklayer1, labour1, painter1, carpainter1;
     ImageView headerpic1;
     TextView header_name,header_mail_id;
+    CircleImageView image;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,6 +74,7 @@ public class Recruiter extends AppCompatActivity {
         header_name=(TextView)hview.findViewById(R.id.header_name);
         header_mail_id=(TextView)hview.findViewById(R.id.header_mail_id);
         carpainter1 = (CardView) findViewById(R.id.carpainter);
+        image = (CircleImageView)findViewById(R.id.headerpic);
         mAuth=FirebaseAuth.getInstance();
         ruserid=mAuth.getCurrentUser().getUid().toString();
         rdatabase= FirebaseDatabase.getInstance().getReference("user").child(ruserid);
