@@ -1,7 +1,9 @@
 package com.vivek.captston;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.opengl.Visibility;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -51,6 +53,7 @@ public class Show_Available_worker_Profile extends AppCompatActivity
 	  tv_name1 = (TextView)findViewById(R.id.tv_name);
 
 	  b1 = (Button)findViewById(R.id.finish);
+	  b1.setClickable(false);
 	  l1 = (LinearLayout)findViewById(R.id.confirmandfinish);
 	  tv_profession1 = (TextView)findViewById(R.id.tv_profession);
 
@@ -116,8 +119,13 @@ public class Show_Available_worker_Profile extends AppCompatActivity
 
      public void showconfirm(View v)
      {
+
+          String number = tv_phone1.getText().toString();
+	  Intent i = new Intent(Intent.ACTION_DIAL);
+	  i.setData(Uri.parse("tel:+91" + number));
+	  startActivity(i);
 	  l1.setVisibility(View.VISIBLE);
-	  //b1.setClickable(false);
+	  b1.setClickable(false);
      }
 
      public void showdone(View v)

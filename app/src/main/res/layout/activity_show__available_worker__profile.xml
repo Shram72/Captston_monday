@@ -358,6 +358,7 @@
 
 			 android:layout_height="wrap_content"
 
+			 android:autoLink="phone"
 			 android:text="Phone Number"
 
 			 android:textColor="@color/headings"

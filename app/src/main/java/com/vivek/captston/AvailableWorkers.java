@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.widget.ImageView;
+import android.widget.TabHost;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -47,8 +48,7 @@ public class AvailableWorkers extends AppCompatActivity
      {
 	  super.onCreate(savedInstanceState);
 
-	  Bundle b = getIntent().getExtras();
-	  City = b.getString("CITY");
+
 	  setTitle("Available Workers");
 	  setContentView(R.layout.activity_available_workers);
 	  professsion = (TextView)findViewById(R.id.ava_profession);
@@ -56,6 +56,8 @@ public class AvailableWorkers extends AppCompatActivity
 	  //category of the type of the worker
 	  String categorie = sharedPreferences.getString("categorie" , DEFAULT);
 	  String img_var = sharedPreferences.getString("imgvar" , DEFAULT);
+	  City = sharedPreferences.getString("City" , DEFAULT);
+	  Toast.makeText(this , "City : "+City , Toast.LENGTH_SHORT).show();
 	  Toast.makeText(getApplicationContext() , "String" + img_var , Toast.LENGTH_SHORT).show();
 
 	  integer_img_var = Integer.parseInt(img_var);

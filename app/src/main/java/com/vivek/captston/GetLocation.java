@@ -1,7 +1,9 @@
 package com.vivek.captston;
 
 import android.Manifest;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.location.Address;
 import android.location.Geocoder;
@@ -32,16 +34,21 @@ public class GetLocation extends AppCompatActivity
 
      FusedLocationProviderClient fusedLocationProviderClient;
 
+     SharedPreferences sharedPreferences;
+     SharedPreferences.Editor editor;
      Location lastlocation;
 
      @Override
      protected void onCreate(Bundle savedInstanceState)
      {
+
 	  super.onCreate(savedInstanceState);
 	  setContentView(R.layout.activity_get_location);
 	  currLocation = (CardView)findViewById(R.id.curr_Location);
 	  otherLocation = (Button)findViewById(R.id.other_Location);
 	  fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(GetLocation.this);
+	  sharedPreferences= getSharedPreferences("Categories", Context.MODE_PRIVATE);
+	  editor=sharedPreferences.edit();
 
      }
 
@@ -100,17 +107,14 @@ public class GetLocation extends AppCompatActivity
                                 postalcode.setText(postalCode1);
                                 knownplace.setText(knownName1);*/
 
+                                editor.putString("City" , city1);
+                                editor.commit();
+
 					Toast.makeText(GetLocation.this , "Address : " + address1 , Toast.LENGTH_SHORT).show();
 					Toast.makeText(GetLocation.this , "City : " + city1 , Toast.LENGTH_SHORT).show();
 
-					String citycopy = city1;
 
-					Bundle b = new Bundle();
-					Intent i = new Intent(GetLocation.this , AvailableWorkers.class);
-					b.putString("CITY" , citycopy);
-					i.putExtras(b);
-					startActivity(i);
-					//startActivity(new Intent(GetLocation.this , AvailableWorkers.class));
+					startActivity(new Intent(GetLocation.this , AvailableWorkers.class));
 
 					// tvphysicaladdress.setText("Address is:"+ address);
 				   }
