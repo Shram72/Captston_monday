@@ -28,9 +28,6 @@ import jp.wasabeef.picasso.transformations.CropCircleTransformation;
 
 public class PhotoActivity extends AppCompatActivity implements View.OnClickListener
 {
-
-
-     Button chooseimg, uploadimg;
      ImageView uploadimgview;
      private static final int SELECT_PICTURE = 100;
      Uri filepath;

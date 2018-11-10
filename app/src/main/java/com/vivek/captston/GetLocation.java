@@ -18,9 +18,13 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
+import com.google.android.gms.common.GooglePlayServicesRepairableException;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.GeofencingRequest;
 import com.google.android.gms.location.LocationServices;
+import com.google.android.gms.location.places.Place;
+import com.google.android.gms.location.places.ui.PlacePicker;
 import com.google.android.gms.tasks.OnSuccessListener;
 
 import java.io.IOException;
@@ -31,12 +35,60 @@ public class GetLocation extends AppCompatActivity
 {
      CardView currLocation;
      Button otherLocation;
+     int PLACE_PICKER_REQUEST = 1;
 
      FusedLocationProviderClient fusedLocationProviderClient;
 
      SharedPreferences sharedPreferences;
      SharedPreferences.Editor editor;
      Location lastlocation;
+
+     public void goPlacePicker(View view)
+     {
+	  PlacePicker.IntentBuilder builder = new PlacePicker.IntentBuilder();
+	  try
+	  {
+	       startActivityForResult(builder.build(GetLocation.this) , PLACE_PICKER_REQUEST);
+	  }catch(GooglePlayServicesRepairableException e)
+	  {
+	       e.printStackTrace();
+	  }catch(GooglePlayServicesNotAvailableException e)
+	  {
+	       e.printStackTrace();
+	  }
+
+     }
+
+     @Override
+     protected void onActivityResult(int requestCode , int resultCode , Intent data)
+     {
+	  //super.onActivityResult(requestCode, resultCode, data);
+	  if(requestCode == PLACE_PICKER_REQUEST)
+	  {
+	       if(resultCode == RESULT_OK)
+	       {
+		    Place place = PlacePicker.getPlace(GetLocation.this , data);
+		    Geocoder geocoder = new Geocoder(this);
+		    try
+		    {
+			 List<Address> addresses = geocoder.getFromLocation(place.getLatLng().latitude , place.getLatLng().longitude , 1);
+			 String address = addresses.get(0).getAddressLine(0);
+			 //String city = addresses.get(0).getAddressLine();
+			 String city = addresses.get(0).getLocality();
+			 //String country = addresses.get(0).getAddressLine(2)
+			 Toast.makeText(GetLocation.this , "AddressPlacePicker" + address , Toast.LENGTH_LONG).show();
+			 Toast.makeText(GetLocation.this , "CityPlacePicker" + city , Toast.LENGTH_SHORT).show();
+
+		    }catch(IOException e)
+		    {
+
+			 e.printStackTrace();
+		    }
+		    //tv.setText(place.getAddress());
+		    //Toast.makeText(GetLocation.this, "Address" + place.getAddress() + "\n", Toast.LENGTH_SHORT).show();
+	       }
+	  }
+     }
 
      @Override
      protected void onCreate(Bundle savedInstanceState)
@@ -47,8 +99,8 @@ public class GetLocation extends AppCompatActivity
 	  currLocation = (CardView)findViewById(R.id.curr_Location);
 	  otherLocation = (Button)findViewById(R.id.other_Location);
 	  fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(GetLocation.this);
-	  sharedPreferences= getSharedPreferences("Categories", Context.MODE_PRIVATE);
-	  editor=sharedPreferences.edit();
+	  sharedPreferences = getSharedPreferences("Categories" , Context.MODE_PRIVATE);
+	  editor = sharedPreferences.edit();
 
      }
 
@@ -107,8 +159,8 @@ public class GetLocation extends AppCompatActivity
                                 postalcode.setText(postalCode1);
                                 knownplace.setText(knownName1);*/
 
-                                editor.putString("City" , city1);
-                                editor.commit();
+					editor.putString("City" , city1);
+					editor.commit();
 
 					Toast.makeText(GetLocation.this , "Address : " + address1 , Toast.LENGTH_SHORT).show();
 					Toast.makeText(GetLocation.this , "City : " + city1 , Toast.LENGTH_SHORT).show();

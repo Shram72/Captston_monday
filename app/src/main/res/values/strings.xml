@@ -3,5 +3,6 @@
      <string name="open">Capstone</string>
      <string name="close">Capstone</string>
      <string name="title_activity_login">Login</string>
+     <string name="title_activity_maps">Map</string>
 
 </resources>
