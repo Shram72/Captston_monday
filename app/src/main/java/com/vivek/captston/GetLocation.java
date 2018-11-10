@@ -95,7 +95,7 @@ public class GetLocation extends AppCompatActivity
 				   {
 					// Address address = locationlist.get(0);
 					String address1 = addresses.get(0).getAddressLine(0); // If any additional address line present than only, check with max available address lines by getMaxAddressLineIndex()
-					String city1 = addresses.get(0).getSubAdminArea();
+					String city1 = addresses.get(0).getLocality();
 					String state1 = addresses.get(0).getAdminArea();
 					String country1 = addresses.get(0).getCountryName();
 					String postalCode1 = addresses.get(0).getPostalCode();
